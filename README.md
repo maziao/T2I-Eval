@@ -16,7 +16,6 @@
 Implementation of paper **[Automatic Evaluation for Text-to-image Generation: Task-decomposed
 Framework, Distilled Training, and Meta-evaluation Benchmark](https://arxiv.org/abs/2411.15488)**.
 
-
 ![Illustration of evaluation framework](./figs/framework.png)
 
 ## 🔥 News
@@ -46,17 +45,17 @@ Framework, Distilled Training, and Meta-evaluation Benchmark](https://arxiv.org/
 | BLIPv2Score                              | 0.2278            | 0.1588            | 0.2280            | 0.1617            | 0.2134            | 0.1477            | 0.2152               | 0.1423               |
 | ImageReward                              | 0.4171            | 0.3065            | 0.3712            | 0.2690            | 0.4134            | 0.3030            | 0.4046               | 0.2839               |
 | **LLM/MLLM-Based Methods**               |
-| LLMScore$_{GPT-4}$                       | 0.3009            | 0.2212            | 0.2697            | 0.2012            | 0.3299            | 0.2497            | 0.3096               | 0.2228               |
-| DSG$_{Dependent}$                        | 0.4742            | 0.3790            | 0.4204            | 0.3339            | 0.4562            | 0.3652            | 0.4582               | 0.3512               |
-| DSG$_{Independent}$                      | 0.4815            | 0.3891            | 0.4382            | 0.3502            | 0.4721            | 0.3827            | 0.4704               | 0.3655               |
-| VQAScore$_{CLIP-FlanT5}$                 | 0.4984            | 0.3768            | 0.4864            | 0.3619            | 0.5118            | 0.3854            | 0.5116               | 0.3712               |
-| VIEScore$_{MiniCPM-V-2.6}$               | 0.2834            | 0.2251            | 0.2814            | 0.2231            | 0.3016            | 0.2422            | 0.2941               | 0.2250               |
-| VIEScore$_{MiniCPM-V-2.6^{*}}$           | 0.4906            | 0.3878            | 0.4869            | 0.3836            | 0.4889            | 0.3899            | 0.5101               | 0.3897               |
-| VIEScore$_{GPT-4o}$                      | **0.5522**        | **0.4283**        | 0.5306            | 0.4101            | 0.5170            | 0.4024            | 0.5545               | 0.4170               |
+| LLMScore$_\text{GPT-4}$                  | 0.3009            | 0.2212            | 0.2697            | 0.2012            | 0.3299            | 0.2497            | 0.3096               | 0.2228               |
+| DSG$_\text{Dependent}$                   | 0.4742            | 0.3790            | 0.4204            | 0.3339            | 0.4562            | 0.3652            | 0.4582               | 0.3512               |
+| DSG$_\text{Independent}$                 | 0.4815            | 0.3891            | 0.4382            | 0.3502            | 0.4721            | 0.3827            | 0.4704               | 0.3655               |
+| VQAScore$_\text{CLIP-FlanT5}$            | 0.4984            | 0.3768            | 0.4864            | 0.3619            | 0.5118            | 0.3854            | 0.5116               | 0.3712               |
+| VIEScore$_\text{MiniCPM-V-2.6}$          | 0.2834            | 0.2251            | 0.2814            | 0.2231            | 0.3016            | 0.2422            | 0.2941               | 0.2250               |
+| VIEScore$_{\text{MiniCPM-V-2.6}^{*}}$    | 0.4906            | 0.3878            | 0.4869            | 0.3836            | 0.4889            | 0.3899            | 0.5101               | 0.3897               |
+| VIEScore$_\text{GPT-4o}$                 | **0.5522**        | **0.4283**        | 0.5306            | 0.4101            | 0.5170            | 0.4024            | 0.5545               | 0.4170               |
 | **Closed-Source MLLM with Our Pipeline** |
-| Ours$_{GPT-4o}$                          | 0.5437            | 0.4302            | 0.5355            | 0.4214            | 0.5138            | 0.4061            | 0.5566               | 0.4285               |
+| Ours$_\text{GPT-4o}$                     | 0.5437            | 0.4302            | 0.5355            | 0.4214            | 0.5138            | 0.4061            | 0.5566               | 0.4285               |
 | **Our Fine-tuned Open-source MLLM**      |
-| Ours$_{MiniCPM-V-2.6}$                   | 0.5306            | 0.4214            | **0.6067**        | **0.4769**        | **0.5744**        | **0.4563**        | **0.5938**           | **0.4566**           |
+| Ours$_\text{MiniCPM-V-2.6}$              | 0.5334            | 0.4192            | **0.5946**            | **0.4644**            | **0.5537**            | **0.4348**            | **0.5802**               | **0.4409**               |
 
 ## 🚀 Getting Started
 
@@ -92,7 +91,7 @@ pip install 'ms-swift[all]' -U
   ```
 
 - Download MiniCPM-V-2.6 checkpoint (**NOTE**: You need to agree to share your contact information to [access this model](https://huggingface.co/openbmb/MiniCPM-V-2_6))
-  
+
   ```shell
   # if MiniCPM-V-2.6 checkpoint has not been downloaded
   mkdir -p models/minicpm-v-2_6/original
@@ -154,7 +153,7 @@ pip install 'ms-swift[all]' -U
   ```
 
 - Inference
-  
+
   ```shell
   bash scripts/inference.sh HOST_ADDR PORT # localhost 65535
   ```
@@ -195,7 +194,7 @@ For example, when using MiniCPM-V-2.6, you need to create a [new class](./src/da
   ```
 
 - Make an index file `data/train/minicpm-v-2_6/index.txt` for sub-tasks:
-  
+
   ```txt
   extract.json 8
   appearance-multi-stage_1.json 1
