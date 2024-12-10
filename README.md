@@ -20,6 +20,7 @@ Framework, Distilled Training, and Meta-evaluation Benchmark](https://arxiv.org/
 
 ## 🔥 News
 
+- 2024 Dec 10: Support offline inference with vLLM.
 - 2024 Nov 28: Code for evaluation and fine-tuning is released. Code for training set construction is coming soon.
 - 2024 Nov 25: Paper available on [Arxiv](https://arxiv.org/abs/2411.15488). Code coming Soon.
 
@@ -146,7 +147,9 @@ pip install 'ms-swift[all]' -U
 
 ### Evaluation
 
-- Deploying with vLLM (Recommended)
+#### Deploy with OpenAI-Compatible Server (Recommended)
+
+- Deployment
 
   ```shell
   bash scripts/deploy.sh GPU_ID HOST_ADDR PORT # 0 localhost 65535
@@ -158,6 +161,12 @@ pip install 'ms-swift[all]' -U
   bash scripts/inference.sh HOST_ADDR PORT # localhost 65535
   ```
 
+#### Offline Inference
+
+```shell
+bash scripts/inference_offline.sh GPU_ID # replace GPU_ID
+```
+
 ### Fine-tuning
 
 #### [Optional] Customize Sample Format for Your Model
@@ -167,7 +176,7 @@ For example, when using MiniCPM-V-2.6, you need to create a [new class](./src/da
 - $\verb|replace_image_placeholder|$: replace the original image placeholders with the one of the model you are about to fine-tune.
 - $\verb|conv_template|$: construct a single training sample (a conversation) given the corpus. The given corpus follows this format:
 
-  ```json
+  ```
   {
     "gt_image": str,
     "query": str,
