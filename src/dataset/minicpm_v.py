@@ -1,3 +1,4 @@
+import os
 from src.dataset.sft_dataset_constructor import T2VEvalSFTDataConstructor, dump_data
 
 
@@ -24,6 +25,9 @@ class MiniCPMSFTDataConstructor(T2VEvalSFTDataConstructor):
                 "history": history
             }
         else:
+            gt_image = os.path.join(self.image_dir, gt_image)
+            if ref_image is not None:
+                ref_image = os.path.join(self.image_dir, ref_image)
             return {
                 "id": id,
                 "images": [gt_image, ref_image] if ref_image is not None else [gt_image],

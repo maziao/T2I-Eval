@@ -20,9 +20,10 @@ Framework, Distilled Training, and Meta-evaluation Benchmark](https://arxiv.org/
 
 ## 🔥 News
 
-- 2024 Dec 10: Support offline inference with vLLM.
-- 2024 Nov 28: Code for evaluation and fine-tuning is released. Code for training set construction is coming soon.
-- 2024 Nov 25: Paper available on [Arxiv](https://arxiv.org/abs/2411.15488). Code coming Soon.
+- **2025 Jan 22**: Fix issue in training dataset construction logic.
+- **2024 Dec 10**: Support offline inference with vLLM.
+- **2024 Nov 28**: Code for evaluation and fine-tuning is released. Code for training set construction is coming soon.
+- **2024 Nov 25**: Paper available on [Arxiv](https://arxiv.org/abs/2411.15488). Code coming Soon.
 
 ## Resources
 
@@ -79,7 +80,7 @@ pip install vllm
 **[Optional]** If you want to fine-tune your own evaluation MLLM, please setup SWIFT following [this instruction](https://swift.readthedocs.io/en/latest/GetStarted/Installation.html):
 
 ```shell
-pip install 'ms-swift[all]' -U
+pip install 'ms-swift[all]==2.6.1' -U
 ```
 
 ### Model and Data Preparation
@@ -199,6 +200,7 @@ For example, when using MiniCPM-V-2.6, you need to create a [new class](./src/da
 
   python build_dataset.py \
     --data-files data/train/t2i-eval-distill-gpt-4o.json \
+    --image-dir $(pwd)/data/train \
     --output-dir data/train/minicpm-v-2_6/raw
   ```
 

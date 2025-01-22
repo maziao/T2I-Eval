@@ -7,11 +7,12 @@ from src.dataset.sft_dataset_constructor import dump_data
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--data-files', type=str, nargs='+')
+    parser.add_argument('--image-dir', type=str, required=True)
     parser.add_argument('--output-dir', type=str, required=True)
     args = parser.parse_args()
     
     for file in args.data_files:
-        constructor = MiniCPMSFTDataConstructor(data_file=file, output_dir=None)
+        constructor = MiniCPMSFTDataConstructor(data_file=file, image_dir=args.image_dir)
         samples = constructor.construct_all(
             include_multi_stage=True,
             separate_aspects=True

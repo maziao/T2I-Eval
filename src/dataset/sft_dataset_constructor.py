@@ -137,7 +137,7 @@ def dump_data(data_dict: dict, output_dir: str, readable: bool = False):
 
 
 class T2VEvalSFTDataConstructor:
-    def __init__(self, data_file: str, output_dir: str, disable_ref: bool = False):
+    def __init__(self, data_file: str, image_dir: str = None, disable_ref: bool = False):
         """Sample format: {
             "id": int,
             "model_name": "sd15" / "sd3" / "sdxl",
@@ -304,6 +304,7 @@ class T2VEvalSFTDataConstructor:
             data_file (str): _description_
             output_dir (str): _description_
         """
+        self.image_dir = image_dir
         self.disable_ref = disable_ref
         self.orig_image_placeholder = "<ImagePlaceholder>"
         with open(data_file, "r+", encoding="utf-8") as f:
