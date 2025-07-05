@@ -20,6 +20,7 @@ Framework, Distilled Training, and Meta-evaluation Benchmark](https://arxiv.org/
 
 ## 🔥 News
 
+- **2025 May 16**: Our paper has been accepted to the main conference of **ACL 2025**.
 - **2025 Jan 22**: Fix issue in training dataset construction logic.
 - **2024 Dec 10**: Support offline inference with vLLM.
 - **2024 Nov 28**: Code for evaluation and fine-tuning is released. Code for training set construction is coming soon.
